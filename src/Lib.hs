@@ -5,5 +5,13 @@ module Lib (
 import Language.Haskell.TH
 import Language.Haskell.TH.Quote
 
+qqUndef :: QuasiQuoter
+qqUndef = QuasiQuoter {
+  quoteExp = error "quoteExp undefined",
+  quotePat = error "quotePat undefined",
+  quoteType = error "quoteType undefined",
+  quoteDec = error "quoteDec undefined"
+}
+
 str :: QuasiQuoter
-str = QuasiQuoter { quoteExp = stringE }
+str = qqUndef { quoteExp = stringE }
